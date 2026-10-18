@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林芳立建築師 | 立驥建築師事務所 - 空間、環境與文化共鳴的載體</title>
+  <meta name="description" content="擁有逾 25 年跨尺度建築實戰歷練。立驥建築師事務所致力於在嚴謹工程技術、智慧永續與自然人文之間，打造具備長期生命力與商業價值的空間環境。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Orbitron, Inter & Noto Serif TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            tech: {
+              void: '#04070D',       /* 最深宇宙黑 */
+              base: '#080E1A',       /* 主背景深黑青 */
+              surface: '#0F1829',    /* 卡片底色 */
+              surfaceHover: '#16233B',
+              border: '#1E2E4A',     /* 科技框線 */
+              borderGlow: '#00F0FF', /* 霓虹青螢光框線 */
+              cyan: '#00E5FF',       /* 主亮色：科技青藍 */
+              cyanDark: '#0098A6',
+              blue: '#2563EB',       /* 科技電光藍 */
+              neon: '#38BDF8',       /* 天空霓虹 */
+              textMain: '#F1F5F9',   /* 高對比亮白文字 */
+              textMuted: '#94A3B8',  /* 科技灰次要文字 */
+              emerald: '#10B981',    /* ESG 永續綠 */
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+            tech: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 科技矩陣背景：細緻發光格線與透視網格 */
+    .cyber-grid-bg {
+      background-color: #050A14;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+        linear-gradient(to right, rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+
+    /* 科技感發光邊框與微光效果 */
+    .glow-border {
+      position: relative;
+    }
+    .glow-border::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.4), transparent 60%, rgba(37, 99, 235, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* 音波可視化動畫 */
+    @keyframes techWave {
+      0%, 100% { transform: scaleY(0.2); }
+      50% { transform: scaleY(1); }
+    }
+    .eq-active #waveBar1 {
+      animation: techWave 0.65s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .eq-active #waveBar2 {
+      animation: techWave 0.45s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.15s;
+    }
+    .eq-active #waveBar3 {
+      animation: techWave 0.75s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.3s;
+    }
+
+    /* 科技掃描線微光動畫 */
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(1000%); }
+    }
+    .scanline-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.6), transparent);
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="cyber-grid-bg text-tech-textMain font-sans antialiased selection:bg-tech-cyan selection:text-tech-void overflow-x-hidden min-h-screen">
+
+  <!-- 科技光暈背景裝飾 -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 right-1/4 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+
+  <!-- Top Navigation Bar (Cyber Frost Glass) -->
+  <header id="navbar" class="sticky top-0 z-40 bg-[#080E1A]/85 backdrop-blur-xl border-b border-tech-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity with Tech Icon -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-tech-cyan/20 to-blue-600/20 border border-tech-cyan/40 flex items-center justify-center text-tech-cyan shadow-[0_0_15px_rgba(0,229,255,0.25)] group-hover:shadow-[0_0_25px_rgba(0,229,255,0.45)] group-hover:scale-105 transition-all">
+          <i class="fa-solid fa-cube text-lg"></i>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-serif font-black text-xl text-white tracking-wide leading-none group-hover:text-tech-cyan transition-colors">立驥建築師事務所</span>
+            <span class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-tech font-bold uppercase bg-tech-cyan/10 text-tech-cyan border border-tech-cyan/30">ARCH</span>
+          </div>
+          <span class="text-[11px] font-medium text-tech-textMuted tracking-wider mt-1">林芳立 主持建築師 ｜ 25+ 歷練</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-tech-textMuted">
+        <a href="#about" class="hover:text-tech-cyan transition-colors flex items-center gap-1.5">
+          <span class="text-xs text-tech-cyan/60 font-tech">01.</span>事務所理念
+        </a>
+        <a href="#advantages" class="hover:text-tech-cyan transition-colors flex items-center gap-1.5">
+          <span class="text-xs text-tech-cyan/60 font-tech">02.</span>核心專業
+        </a>
+        <a href="#domains" class="hover:text-tech-cyan transition-colors flex items-center gap-1.5">
+          <span class="text-xs text-tech-cyan/60 font-tech">03.</span>合作領域
+        </a>
+        <a href="#contact" class="hover:text-tech-cyan transition-colors flex items-center gap-1.5">
+          <span class="text-xs text-tech-cyan/60 font-tech">04.</span>專案洽詢
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 bg-gradient-to-r from-tech-cyan/20 to-blue-600/30 text-tech-cyan hover:text-white border border-tech-cyan/50 hover:border-tech-cyan px-5 py-2 rounded-full shadow-[0_0_12px_rgba(0,229,255,0.2)] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 transition-all text-xs font-semibold">
+          <i class="fa-brands fa-linkedin text-sm"></i>
+          <span>LinkedIn 交流</span>
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" type="button" aria-label="切換選單" class="md:hidden p-2 rounded-lg text-tech-textMain hover:bg-tech-surface border border-tech-border focus:outline-none">
+        <i id="menuIcon" class="fa-solid fa-bars-staggered text-lg text-tech-cyan"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0A1220]/95 backdrop-blur-2xl border-b border-tech-border px-6 py-6 shadow-2xl">
+      <div class="flex flex-col gap-4 text-sm font-medium text-tech-textMuted">
+        <a href="#about" class="mobile-nav-link py-2 border-b border-tech-border/50 hover:text-tech-cyan flex items-center justify-between">
+          <span>事務所理念</span>
+          <span class="text-xs font-tech text-tech-cyan">01</span>
+        </a>
+        <a href="#advantages" class="mobile-nav-link py-2 border-b border-tech-border/50 hover:text-tech-cyan flex items-center justify-between">
+          <span>核心專業優勢</span>
+          <span class="text-xs font-tech text-tech-cyan">02</span>
+        </a>
+        <a href="#domains" class="mobile-nav-link py-2 border-b border-tech-border/50 hover:text-tech-cyan flex items-center justify-between">
+          <span>重點合作領域</span>
+          <span class="text-xs font-tech text-tech-cyan">03</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link py-2 border-b border-tech-border/50 hover:text-tech-cyan flex items-center justify-between">
+          <span>專案洽詢預約</span>
+          <span class="text-xs font-tech text-tech-cyan">04</span>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="mt-2 text-center bg-gradient-to-r from-tech-cyan to-blue-600 text-tech-void py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+          <i class="fa-brands fa-linkedin text-base"></i>
+          <span>前往 LinkedIn 交流</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section: Philosophy & Cyber Architect Portrait -->
+    <section id="about" class="pt-8 pb-16 sm:py-20 lg:py-28 relative overflow-hidden">
+      <div class="scanline-effect"></div>
+      
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          
+          <!-- Left Column: Vision Statement & Bio -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            
+            <!-- Tech Status Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tech-surface border border-tech-cyan/40 shadow-[0_0_15px_rgba(0,229,255,0.15)] w-fit mb-6">
+              <span class="w-2 h-2 rounded-full bg-tech-cyan animate-ping"></span>
+              <span class="text-xs font-tech font-semibold text-tech-cyan tracking-wider uppercase">LIJI ARCHITECTS・EST. 25+ YEARS</span>
+            </div>
+
+            <!-- Main Philosophical Quote -->
+            <h1 class="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold leading-snug sm:leading-tight mb-6 tracking-wide">
+              建築不僅是鋼筋混凝土的堆砌，<br class="hidden sm:inline" />
+              更是<span class="bg-gradient-to-r from-tech-cyan via-sky-400 to-blue-500 bg-clip-text text-transparent underline decoration-tech-cyan/30 underline-offset-8">人、空間、環境與文化共鳴</span>的載體。
+            </h1>
+
+            <!-- Bio Narrative -->
+            <p class="text-tech-textMuted text-base sm:text-lg leading-relaxed mb-6 text-justify">
+              我是<strong class="text-white font-semibold">林芳立建築師</strong>，擁有逾 25 年跨尺度建築實戰歷練。執業生涯跨越獨立事務所經營、聯合建築師事務所合夥人至創立「<strong class="text-tech-cyan font-semibold">立驥建築師事務所</strong>」。
+            </p>
+            <p class="text-tech-textMuted text-sm sm:text-base leading-relaxed mb-8 text-justify">
+              長期以「<span class="text-white font-medium">文化傳承、永續發展、節能減碳、以人為本、展望未來</span>」為準繩，致力於在嚴謹工程技術、智慧建築科技與自然人文之間，打造具備長期生命力與商業價值的空間環境。
+            </p>
+
+            <!-- Five Core Guiding Principles (Cyber Neon Badges) -->
+            <div class="flex flex-wrap gap-2.5 mb-9">
+              <span class="px-3 py-1.5 rounded-lg bg-tech-surface/80 border border-tech-border text-tech-textMain text-xs font-medium flex items-center gap-1.5 shadow-sm hover:border-tech-cyan/60 transition-colors">
+                <i class="fa-solid fa-leaf text-tech-emerald text-[11px]"></i> 文化傳承
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-tech-surface/80 border border-tech-border text-tech-textMain text-xs font-medium flex items-center gap-1.5 shadow-sm hover:border-tech-cyan/60 transition-colors">
+                <i class="fa-solid fa-recycle text-tech-cyan text-[11px]"></i> 永續發展
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-tech-surface/80 border border-tech-border text-tech-textMain text-xs font-medium flex items-center gap-1.5 shadow-sm hover:border-tech-cyan/60 transition-colors">
+                <i class="fa-solid fa-bolt-lightning text-amber-400 text-[11px]"></i> 節能減碳
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-tech-surface/80 border border-tech-border text-tech-textMain text-xs font-medium flex items-center gap-1.5 shadow-sm hover:border-tech-cyan/60 transition-colors">
+                <i class="fa-solid fa-heart-pulse text-rose-400 text-[11px]"></i> 以人為本
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-tech-surface/80 border border-tech-border text-tech-textMain text-xs font-medium flex items-center gap-1.5 shadow-sm hover:border-tech-cyan/60 transition-colors">
+                <i class="fa-solid fa-satellite-dish text-purple-400 text-[11px]"></i> 展望未來
+              </span>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-wrap gap-4 items-center">
+              <a href="#contact" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-tech-cyan to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-tech-void font-bold text-sm shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] transition-all flex items-center gap-2">
+                <span>專案合作諮詢</span>
+                <i class="fa-solid fa-arrow-down-long text-xs"></i>
+              </a>
+              <a href="#advantages" class="px-7 py-3.5 rounded-xl bg-tech-surface/80 hover:bg-tech-surfaceHover text-tech-textMain border border-tech-border hover:border-tech-cyan/50 font-medium text-sm transition-all flex items-center gap-2">
+                <span>核心專業優勢</span>
+                <i class="fa-solid fa-shield-halved text-xs text-tech-cyan"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Cyber Portrait Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-sm sm:max-w-md bg-tech-surface/90 rounded-3xl p-4 sm:p-5 border border-tech-border glow-border shadow-2xl relative group">
+              
+              <!-- Subtle decorative corner reticles -->
+              <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-tech-cyan/60"></div>
+              <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-tech-cyan/60"></div>
+              <div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-tech-cyan/60"></div>
+              <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-tech-cyan/60"></div>
+
+              <!-- Portrait Image Container -->
+              <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-tech-void/80 border border-tech-border group-hover:border-tech-cyan/40 transition-colors">
+                <img 
+                  id="architectPhoto"
+                  src="https://img.ai365.fans/artworks/672ae9f1-af97-4648-8b83-6a5ceea6925a/ng3eop46xb.png" 
+                  alt="林芳立建築師" 
+                  class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="eager"
+                  onerror="this.onerror=null; this.src='https://placehold.co/800x1000/080E1A/00E5FF?text=%E6%9E%97%E8%8A%B3%E7%AB%8B+%E5%BB%BA%E7%AF%89%E5%B8%AB';"
+                />
+                
+                <!-- Cyber Scan Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-tech-base via-transparent to-transparent opacity-80 pointer-events-none"></div>
+
+                <!-- Floating tech badge on top of image -->
+                <div class="absolute top-3 left-3 bg-[#080E1A]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-tech-cyan border border-tech-cyan/30 shadow-sm flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-tech-cyan shadow-[0_0_8px_#00E5FF]"></span>
+                  主持建築師
+                </div>
+              </div>
+
+              <!-- Architect Identity Details -->
+              <div class="mt-4 px-2">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-serif font-black text-xl text-white">林芳立 <span class="text-xs font-tech text-tech-cyan font-normal uppercase tracking-wider">Principal Architect</span></h3>
+                    <p class="text-xs text-tech-textMuted font-medium mt-0.5">立驥建築師事務所 創辦人</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-2xl font-tech font-bold text-tech-cyan">25<span class="text-white">+</span></span>
+                    <span class="text-[10px] text-tech-textMuted block uppercase font-tech tracking-wider">YEARS EXP.</span>
+                  </div>
+                </div>
+
+                <div class="mt-3 pt-3 border-t border-tech-border/80 grid grid-cols-2 gap-2 text-[11px] text-tech-textMuted">
+                  <div class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-landmark text-tech-cyan text-xs"></i>
+                    <span>新北建築師公會法規委員</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-certificate text-tech-cyan text-xs"></i>
+                    <span>台北建管協會常務理事</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Advantages Section (Dark Glass 2x2 Grid) -->
+    <section id="advantages" class="py-16 sm:py-24 bg-tech-surface/40 border-y border-tech-border/80 relative">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <span class="text-xs font-tech font-bold uppercase tracking-widest text-tech-cyan bg-tech-cyan/10 px-3.5 py-1 rounded-full border border-tech-cyan/30">
+            CORE COMPETENCE // 02
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3 mb-4">核心專業優勢</h2>
+          <p class="text-sm sm:text-base text-tech-textMuted">
+            貫徹「技術、法令、效益、人文」四大科技營建支柱，為每一項空間委託奠定扎實且具前瞻性的基石。
+          </p>
+        </div>
+
+        <!-- 2x2 Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+          
+          <!-- Card 1 -->
+          <div class="bg-tech-surface/70 rounded-2xl p-7 sm:p-9 border border-tech-border hover:border-tech-cyan/60 shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="w-12 h-12 rounded-xl bg-tech-cyan/10 text-tech-cyan flex items-center justify-center text-xl font-bold border border-tech-cyan/20 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-diagram-project"></i>
+                </span>
+                <span class="font-tech text-3xl font-black text-tech-border group-hover:text-tech-cyan/40 transition-colors">01</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-1 group-hover:text-tech-cyan transition-colors">全生命週期整合管理</h3>
+              <p class="text-xs font-tech font-semibold tracking-wider text-tech-cyan mb-4">FULL LIFECYCLE &amp; PCM</p>
+              <p class="text-sm sm:text-[15px] text-tech-textMuted leading-relaxed text-justify">
+                突破規劃與營建脫節之痛點，從前期土地可行性評估、法規策略、綠建築設計，一路貫通至施工監造與營建管理（PCM）。於設計源頭導入價值工程（VE），為業主嚴密控管成本、工期與工程品質。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-tech-border/60 flex flex-wrap gap-2">
+              <span class="text-[11px] bg-tech-void text-tech-cyan px-2.5 py-1 rounded-md border border-tech-cyan/20 font-medium">前期可行性評估</span>
+              <span class="text-[11px] bg-tech-void text-tech-cyan px-2.5 py-1 rounded-md border border-tech-cyan/20 font-medium">價值工程 (VE)</span>
+              <span class="text-[11px] bg-tech-void text-tech-cyan px-2.5 py-1 rounded-md border border-tech-cyan/20 font-medium">監造管理 (PCM)</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-tech-surface/70 rounded-2xl p-7 sm:p-9 border border-tech-border hover:border-tech-cyan/60 shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="w-12 h-12 rounded-xl bg-blue-500/10 text-tech-neon flex items-center justify-center text-xl font-bold border border-blue-500/20 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-school-flag"></i>
+                </span>
+                <span class="font-tech text-3xl font-black text-tech-border group-hover:text-tech-neon/40 transition-colors">02</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-1 group-hover:text-tech-neon transition-colors">複雜公共與教育設施規劃</h3>
+              <p class="text-xs font-tech font-semibold tracking-wider text-tech-neon mb-4">PUBLIC WORKS &amp; CAMPUS</p>
+              <p class="text-sm sm:text-[15px] text-tech-textMuted leading-relaxed text-justify">
+                深諳政府採購法規與行政審查流程，累積豐富各級學校校舍、公共工程與特殊結構（如高應大吊橋）實績。擅長在校方、師生、社區及預算限制等多方需求中取得平衡，落實人本與安全兼備的校園環境。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-tech-border/60 flex flex-wrap gap-2">
+              <span class="text-[11px] bg-tech-void text-tech-neon px-2.5 py-1 rounded-md border border-blue-500/20 font-medium">政府採購審查流程</span>
+              <span class="text-[11px] bg-tech-void text-tech-neon px-2.5 py-1 rounded-md border border-blue-500/20 font-medium">各級學校校舍規劃</span>
+              <span class="text-[11px] bg-tech-void text-tech-neon px-2.5 py-1 rounded-md border border-blue-500/20 font-medium">特殊結構工程實績</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-tech-surface/70 rounded-2xl p-7 sm:p-9 border border-tech-border hover:border-tech-cyan/60 shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl font-bold border border-purple-500/20 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-scale-balanced"></i>
+                </span>
+                <span class="font-tech text-3xl font-black text-tech-border group-hover:text-purple-400/40 transition-colors">03</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-1 group-hover:text-purple-400 transition-colors">公協會法規研析與社會公信</h3>
+              <p class="text-xs font-tech font-semibold tracking-wider text-purple-400 mb-4">REGULATORY STRATEGY</p>
+              <p class="text-sm sm:text-[15px] text-tech-textMuted leading-relaxed text-justify">
+                現任新北市建築師公會法規委員、公關及服務委員、台北市建築經營管理協會常務理事。憑藉深厚法令理解，協助重大專案排解法規疑義，降低開發風險與行政阻力。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-tech-border/60 flex flex-wrap gap-2">
+              <span class="text-[11px] bg-tech-void text-purple-300 px-2.5 py-1 rounded-md border border-purple-500/20 font-medium">新北公會法規委員</span>
+              <span class="text-[11px] bg-tech-void text-purple-300 px-2.5 py-1 rounded-md border border-purple-500/20 font-medium">疑義排除與法令釋疑</span>
+              <span class="text-[11px] bg-tech-void text-purple-300 px-2.5 py-1 rounded-md border border-purple-500/20 font-medium">降低專案行政風險</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-tech-surface/70 rounded-2xl p-7 sm:p-9 border border-tech-border hover:border-tech-cyan/60 shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="w-12 h-12 rounded-xl bg-tech-emerald/10 text-tech-emerald flex items-center justify-center text-xl font-bold border border-tech-emerald/20 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span class="font-tech text-3xl font-black text-tech-border group-hover:text-tech-emerald/40 transition-colors">04</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-1 group-hover:text-tech-emerald transition-colors">慈善利他視角的空間實踐</h3>
+              <p class="text-xs font-tech font-semibold tracking-wider text-tech-emerald mb-4">ALTRUISTIC &amp; UNIVERSAL DESIGN</p>
+              <p class="text-sm sm:text-[15px] text-tech-textMuted leading-relaxed text-justify">
+                兼任公益法人董事與慈善協會理事長，將長期投入弱勢關懷的同理心反哺於執業理念，深化無障礙通用設計、使用者體驗與文化記憶傳承。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-tech-border/60 flex flex-wrap gap-2">
+              <span class="text-[11px] bg-tech-void text-tech-emerald px-2.5 py-1 rounded-md border border-tech-emerald/20 font-medium">公益法人董事資歷</span>
+              <span class="text-[11px] bg-tech-void text-tech-emerald px-2.5 py-1 rounded-md border border-tech-emerald/20 font-medium">無障礙通用設計</span>
+              <span class="text-[11px] bg-tech-void text-tech-emerald px-2.5 py-1 rounded-md border border-tech-emerald/20 font-medium">弱勢關懷共融場域</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Collaboration Domains -->
+    <section id="domains" class="py-16 sm:py-24 relative">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-tech font-bold uppercase tracking-widest text-tech-cyan bg-tech-cyan/10 px-3.5 py-1 rounded-full border border-tech-cyan/30">
+            FOCUS DOMAINS // 03
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3 mb-4">重點合作領域</h2>
+          <p class="text-sm sm:text-base text-tech-textMuted">
+            立驥建築師事務所持續尋求具備前瞻視野的夥伴，歡迎以下領域之專案合作與策略諮詢：
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Domain 1 -->
+          <div class="bg-tech-surface/80 rounded-2xl p-7 border border-tech-border hover:border-tech-cyan/70 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-tech-cyan/10 text-tech-cyan flex items-center justify-center text-xl mb-5 border border-tech-cyan/20 group-hover:bg-tech-cyan group-hover:text-tech-void transition-all">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-white mb-2 group-hover:text-tech-cyan transition-colors">企業 ESG 永續總部與科技廠辦</h3>
+            <p class="text-sm text-tech-textMuted leading-relaxed">
+              因應國際淨零碳排趨勢，整合綠建築標章、智慧節能技術與現代化科技廠辦空間，為企業品牌注入長遠環境價值。
+            </p>
+          </div>
+
+          <!-- Domain 2 -->
+          <div class="bg-tech-surface/80 rounded-2xl p-7 border border-tech-border hover:border-tech-cyan/70 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-tech-neon flex items-center justify-center text-xl mb-5 border border-blue-500/20 group-hover:bg-blue-500 group-hover:text-white transition-all">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-white mb-2 group-hover:text-tech-neon transition-colors">大專院校與中小學永續校園</h3>
+            <p class="text-sm text-tech-textMuted leading-relaxed">
+              聚焦於人本安全、共融互動之教育設施，兼顧採購法令程序與工程預算，打造啟發新世代思維的永續校園。
+            </p>
+          </div>
+
+          <!-- Domain 3 -->
+          <div class="bg-tech-surface/80 rounded-2xl p-7 border border-tech-border hover:border-tech-cyan/70 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-5 border border-purple-500/20 group-hover:bg-purple-500 group-hover:text-white transition-all">
+              <i class="fa-solid fa-torii-gate"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">人文文化、宗教空間與公益場域</h3>
+            <p class="text-sm text-tech-textMuted leading-relaxed">
+              融合地方紋理與信仰情感，運用通用無障礙空間語彙，為文化保存、公益福祉與心靈沈澱創造具溫度之載體。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Tech Hashtags Bar -->
+        <div class="mt-12 flex flex-wrap justify-center gap-3">
+          <span class="px-4 py-2 rounded-xl bg-tech-surface border border-tech-border text-tech-textMuted font-tech text-xs hover:border-tech-cyan hover:text-tech-cyan transition-colors">
+            # 公共工程整合
+          </span>
+          <span class="px-4 py-2 rounded-xl bg-tech-surface border border-tech-border text-tech-textMuted font-tech text-xs hover:border-tech-cyan hover:text-tech-cyan transition-colors">
+            # 建築規劃設計
+          </span>
+          <span class="px-4 py-2 rounded-xl bg-tech-surface border border-tech-border text-tech-textMuted font-tech text-xs hover:border-tech-cyan hover:text-tech-cyan transition-colors">
+            # 法規協調
+          </span>
+          <span class="px-4 py-2 rounded-xl bg-tech-surface border border-tech-border text-tech-textMuted font-tech text-xs hover:border-tech-cyan hover:text-tech-cyan transition-colors">
+            # 監造與專案管理
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact / Inquiry Section (Cyber Terminal Form) -->
+    <section id="contact" class="py-16 sm:py-24 border-t border-tech-border/80 bg-gradient-to-b from-transparent via-[#060D1A] to-[#040810]">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8">
+        
+        <div class="bg-tech-surface/90 rounded-3xl p-8 sm:p-12 border border-tech-border glow-border shadow-2xl relative overflow-hidden">
+          
+          <!-- Background Ambient Glow -->
+          <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-tech-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <span class="text-xs font-tech font-bold uppercase tracking-widest text-tech-cyan">INQUIRY // 04</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-2 mb-3">攜手共創永續共生之空間願景</h2>
+            <p class="text-sm sm:text-base text-tech-textMuted leading-relaxed max-w-2xl mb-8">
+              歡迎透過表單留下專案資訊，或直接經由 LinkedIn 建立專業人脈連結，期待與您共同探討下一個指標性空間專案。
+            </p>
+
+            <form id="inquiryForm" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="userName" class="block text-xs font-medium text-tech-textMuted mb-1.5 font-tech">您的姓名 / 單位 NAME &amp; ORG</label>
+                  <input type="text" id="userName" required placeholder="例如：陳經理 / 科技建設公司" 
+                         class="w-full px-4 py-3 rounded-xl bg-tech-void/90 border border-tech-border text-white placeholder-slate-500 text-sm focus:outline-none focus:border-tech-cyan focus:ring-1 focus:ring-tech-cyan transition-all">
+                </div>
+                <div>
+                  <label for="userContact" class="block text-xs font-medium text-tech-textMuted mb-1.5 font-tech">聯絡管道 CONTACT INFO</label>
+                  <input type="text" id="userContact" required placeholder="電子郵件或聯絡電話" 
+                         class="w-full px-4 py-3 rounded-xl bg-tech-void/90 border border-tech-border text-white placeholder-slate-500 text-sm focus:outline-none focus:border-tech-cyan focus:ring-1 focus:ring-tech-cyan transition-all">
+                </div>
+              </div>
+
+              <div>
+                <label for="projectType" class="block text-xs font-medium text-tech-textMuted mb-1.5 font-tech">合作諮詢類型 PROJECT DOMAIN</label>
+                <select id="projectType" class="w-full px-4 py-3 rounded-xl bg-tech-void border border-tech-border text-white text-sm focus:outline-none focus:border-tech-cyan focus:ring-1 focus:ring-tech-cyan transition-all">
+                  <option value="ESG廠辦">企業 ESG 永續總部與科技廠辦</option>
+                  <option value="教育校園">大專院校與中小學永續校園</option>
+                  <option value="人文公益">人文文化、宗教空間與公益場域</option>
+                  <option value="法規研析">公會法規研析與重大專案協調</option>
+                  <option value="其他合作">其他空間策略規劃或專案演講</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="userMessage" class="block text-xs font-medium text-tech-textMuted mb-1.5 font-tech">需求簡述 PROJECT BRIEF</label>
+                <textarea id="userMessage" rows="3" placeholder="請簡述您的專案基地位置、預估規模或諮詢重點..." 
+                          class="w-full px-4 py-3 rounded-xl bg-tech-void/90 border border-tech-border text-white placeholder-slate-500 text-sm focus:outline-none focus:border-tech-cyan focus:ring-1 focus:ring-tech-cyan transition-all"></textarea>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <button type="submit" 
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-tech-cyan to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-tech-void font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-paper-plane text-xs"></i>
+                  <span>送出專案諮詢</span>
+                </button>
+
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" 
+                   class="text-xs text-tech-textMuted hover:text-tech-cyan flex items-center gap-1.5 transition-colors">
+                  <i class="fa-brands fa-linkedin text-base text-tech-cyan"></i>
+                  <span>或直接在 LinkedIn 上交流聯繫</span>
+                </a>
+              </div>
+            </form>
+
+            <!-- Friendly Tech Feedback Box -->
+            <div id="formFeedback" class="hidden mt-6 p-4 rounded-xl bg-tech-cyan/10 border border-tech-cyan/40 text-tech-cyan text-sm flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-tech-cyan text-lg"></i>
+              <span>感謝您的洽詢，我們已收到您的專案需求，將儘速由林芳立建築師團隊與您聯繫。</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Dark Tech Blueprint) -->
+  <footer class="bg-tech-void text-tech-textMuted py-10 border-t border-tech-border text-xs">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-medium text-white tracking-wide">立驥建築師事務所 ｜ 林芳立建築師</p>
+        <p class="mt-1 text-slate-500">文化傳承・永續發展・節能減碳・以人為本・展望未來</p>
+      </div>
+      <div class="text-slate-600 font-tech">
+        &copy; <span id="currentYear"></span> LIJI ARCHITECTS. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music Audio Element -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://img.ai365.fans/artworks/672ae9f1-af97-4648-8b83-6a5ceea6925a/t568a3dv57.mp4" type="audio/mp4">
+    您的瀏覽器不支援音樂播放。
+  </audio>
+
+  <!-- Cyber Floating Audio Controller -->
+  <aside id="audioControlWrapper" aria-label="背景音樂開關控制" class="fixed bottom-5 right-4 sm:bottom-6 sm:right-7 z-50">
+    <div class="relative flex items-center bg-[#091120]/90 backdrop-blur-xl px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border border-tech-border glow-border shadow-[0_0_20px_rgba(0,0,0,0.5)] gap-2.5 sm:gap-3 transition-all duration-300 hover:border-tech-cyan/60">
+      
+      <!-- Main Play / Mute Switch Button -->
+      <button 
+        id="musicToggleBtn" 
+        type="button" 
+        aria-pressed="false"
+        aria-label="開啟或關閉背景音樂"
+        class="group flex items-center gap-2 text-white focus:outline-none select-none">
+        
+        <!-- Animated Soundwave Bars (Visualizer) -->
+        <span class="flex items-end gap-[3px] h-3.5 w-4 overflow-hidden" aria-hidden="true">
+          <span id="waveBar1" class="w-[2.5px] h-full bg-tech-cyan rounded-full transform origin-bottom transition-all duration-300 scale-y-20"></span>
+          <span id="waveBar2" class="w-[2.5px] h-full bg-tech-cyan rounded-full transform origin-bottom transition-all duration-300 scale-y-20"></span>
+          <span id="waveBar3" class="w-[2.5px] h-full bg-tech-cyan rounded-full transform origin-bottom transition-all duration-300 scale-y-20"></span>
+        </span>
+
+        <!-- Dynamic Icon -->
+        <span class="w-6 h-6 rounded-full bg-tech-cyan/10 flex items-center justify-center text-tech-cyan group-hover:bg-tech-cyan group-hover:text-tech-void transition-colors duration-200">
+          <i id="musicIcon" class="fa-solid fa-volume-xmark text-[11px]"></i>
+        </span>
+
+        <!-- Status Text Label -->
+        <span class="flex flex-col text-left">
+          <span class="text-[9px] uppercase font-tech font-bold tracking-widest text-tech-textMuted leading-none">AUDIO</span>
+          <span id="musicStatusText" class="text-xs font-semibold text-white leading-tight mt-0.5">點擊播放</span>
+        </span>
+      </button>
+
+      <!-- Vertical Divider -->
+      <div class="w-[1px] h-4 bg-tech-border" aria-hidden="true"></div>
+
+      <!-- Quick Toggle Switch Slider -->
+      <label for="musicCheckbox" class="relative inline-flex items-center cursor-pointer" title="切換背景音樂開關">
+        <input type="checkbox" id="musicCheckbox" class="sr-only peer" aria-label="切換背景音樂開關狀態">
+        <div class="w-8 h-4 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-slate-400 after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:after:bg-tech-void peer-checked:bg-tech-cyan"></div>
+      </label>
+    </div>
+  </aside>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Dynamic current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.className = 'fa-solid fa-xmark text-lg text-tech-cyan';
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.className = 'fa-solid fa-bars-staggered text-lg text-tech-cyan';
+      }
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.className = 'fa-solid fa-bars-staggered text-lg text-tech-cyan';
+      });
+    });
+
+    // Audio Controller Logic
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+    const musicCheckbox = document.getElementById('musicCheckbox');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicStatusText = document.getElementById('musicStatusText');
+    const audioWrapper = document.getElementById('audioControlWrapper');
+
+    let isPlaying = false;
+    bgMusic.volume = 0.45;
+
+    function updateAudioUI(playing) {
+      if (playing) {
+        audioWrapper.classList.add('eq-active');
+        musicIcon.className = 'fa-solid fa-volume-high text-[11px]';
+        musicStatusText.textContent = '播放中';
+        musicCheckbox.checked = true;
+        musicToggleBtn.setAttribute('aria-pressed', 'true');
+      } else {
+        audioWrapper.classList.remove('eq-active');
+        musicIcon.className = 'fa-solid fa-volume-xmark text-[11px]';
+        musicStatusText.textContent = '已靜音';
+        musicCheckbox.checked = false;
+        musicToggleBtn.setAttribute('aria-pressed', 'false');
+      }
+    }
+
+    async function togglePlay(forceState = null) {
+      const targetState = forceState !== null ? forceState : bgMusic.paused;
+      
+      try {
+        if (targetState) {
+          await bgMusic.play();
+          isPlaying = true;
+          updateAudioUI(true);
+        } else {
+          bgMusic.pause();
+          isPlaying = false;
+          updateAudioUI(false);
+        }
+      } catch (err) {
+        console.warn('音訊播放受瀏覽器政策保護，待使用者互動觸發：', err);
+        isPlaying = false;
+        updateAudioUI(false);
+      }
+    }
+
+    musicToggleBtn.addEventListener('click', () => togglePlay());
+    musicCheckbox.addEventListener('change', (e) => togglePlay(e.target.checked));
+
+    // Gentle first interaction audio trigger
+    const startAudioOnFirstInteraction = () => {
+      if (!isPlaying) {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          updateAudioUI(true);
+        }).catch(() => {});
+      }
+      document.removeEventListener('click', startAudioOnFirstInteraction);
+      document.removeEventListener('touchstart', startAudioOnFirstInteraction);
+    };
+
+    document.addEventListener('click', startAudioOnFirstInteraction, { once: true });
+    document.addEventListener('touchstart', startAudioOnFirstInteraction, { once: true });
+
+    // Handle Contact Form Submission
+    const inquiryForm = document.getElementById('inquiryForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>傳送中...</span>';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        formFeedback.classList.remove('hidden');
+        inquiryForm.reset();
+
+        setTimeout(() => {
+          formFeedback.classList.add('hidden');
+        }, 8000);
+      }, 700);
+    });
+
+    // Elevation effect on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('shadow-[0_4px_20px_rgba(0,0,0,0.6)]');
+      } else {
+        navbar.classList.remove('shadow-[0_4px_20px_rgba(0,0,0,0.6)]');
+      }
+    });
+  </script>
+
+</body>
+</html>
